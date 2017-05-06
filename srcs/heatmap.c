@@ -6,31 +6,36 @@
 /*   By: rle <rle@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 19:05:02 by rle               #+#    #+#             */
-/*   Updated: 2017/04/18 20:20:12 by rle              ###   ########.fr       */
+/*   Updated: 2017/05/06 12:42:36 by rle              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-/*
-**		SEE HEATMAP
-**
-**	y = 0;
-**	while (y < dim.map.y)
-**	{
-**		x = 0;
-**		while (x < dim.map.x)
-**		{
-**			if (heatmap[y][x] == 0)
-**				ft_putstr_fd(".", 2);
-**			else
-**				ft_putnbr_fd(heatmap[y][x], 2);
-**			x++;
-**		}
-**		ft_putstr_fd("\n", 2);
-**		y++;
-**	}
-*/
+void	print_heat(char **heatmap, t_dim dim)
+{
+	int x;
+	int y;
+
+	y = 0;
+	ft_putstr_fd("\n", 2);
+	while (y < dim.map.y)
+	{
+		x = 0;
+		while (x < dim.map.x)
+		{
+			if (heatmap[y][x] == 0)
+				ft_putstr_fd(".", 2);
+			else
+				ft_putnbr_fd(heatmap[y][x], 2);
+			x++;
+		}
+		ft_putstr_fd("\n", 2);
+		y++;
+	}
+	ft_putstr_fd("\n", 2);
+	usleep(100000);
+}
 
 char	**copy_map(char **map, t_dim dim)
 {

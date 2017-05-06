@@ -6,7 +6,7 @@
 /*   By: rle <rle@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 20:13:47 by rle               #+#    #+#             */
-/*   Updated: 2017/04/18 20:35:05 by rle              ###   ########.fr       */
+/*   Updated: 2017/05/06 12:43:04 by rle              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int				get_x_shift(char **piece, t_dim dim);
 /*
 **	heatmap
 */
+void			print_heat(char **heatmap, t_dim dim);
 char			**prepare_heat(char **map, t_dim dim, t_player player);
 char			**copy_map(char **map, t_dim dim);
 void			make_heat(char **map, t_dim dim, char level, float fade);

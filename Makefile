@@ -6,15 +6,26 @@
 #    By: rle <rle@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 16:29:53 by rle               #+#    #+#              #
-#    Updated: 2017/04/18 19:06:25 by rle              ###   ########.fr        #
+#    Updated: 2017/05/06 12:49:20 by rle              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = filler
 
-OBJS = $(addsuffix .o, main init get_map get_piece solver distance get_shift heatmap)
+OBJS = $(addprefix ./srcs/, \
+ 			main.o \
+ 			init.o \
+ 			get_map.o \
+ 			get_piece.o \
+ 			solver.o \
+ 			distance.o \
+ 			get_shift.o \
+ 			heatmap.o \
+ 		)
 
 CC = gcc
+
+CFLAGS = -Wall -Werror -Wextra
 
 INCLUDES = -I ./includes -I ./libft/includes
 
@@ -23,10 +34,10 @@ LIB = libft
 all: $(NAME)
 
 $(NAME): $(LIB) $(OBJS)
-	$(CC) $(LIB)/libft.a $(OBJS) $(INCLUDES) -o $(NAME)
+	$(CC) $(CFLAGS) $(LIB)/libft.a $(OBJS) $(INCLUDES) -o $(NAME)
 
 %.o: %.c
-	gcc -c $< $(INCLUDES)
+	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 $(LIB): force
 	$(MAKE) -C libft
